@@ -1,0 +1,38 @@
+<ion-view>
+  <ion-nav-bar>
+    <ion-nav-title>
+      <img src="img/CleanSnapLogo.png">
+    </ion-nav-title>
+  </ion-nav-bar>
+  <ion-content>
+    <form 
+    ng-submit="handleSubmit(user)" 
+    class="padding center" 
+    style="display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;"
+    ng-model="AuthingCtrl"
+    >
+
+      <div class="list list-inset center" style="width:320px; text-align: center;">
+        <h3 style="text-align:center;">Sign In</h3>
+        <label class="item item-input">
+          <span style="color:grey; font-weight: bolder; ">Username</span>
+          <input type="text" class="padding" placeholder=" Username" ng-model="user.username" style="padding-left:10px;" />
+        </label>
+        <label class="item item-input position-stacked">
+          <span style="color:grey; font-weight: bolder;">Password</span>
+          <input type="password" class="padding" placeholder=" Password" ng-model="user.password" style="padding-left: 10px;"/>
+        </label>
+        <input class="button button-block button-calm" style="background-color:#234882;" type="submit" value="Login"/>
+        <p class="forgot-password text-right">
+          Forgot <b><a href="https://getcleansnap.com/forgot-password/">password?</a></b>
+        </p>
+        <p class="signup text-center">
+          <span style="font-size: 17px;">New to CleanSnap?  <b><a  style="text-decoration: none;" href="https://getcleansnap.com/checkout/?rid=pwje3h" target="_blank">Signup</a></b></span>
+        </p>
+      </div>
+    </form>
+  </ion-content>
+</ion-view>

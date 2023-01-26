@@ -1,0 +1,29 @@
+<ion-view>
+  <ion-header-bar>
+      <div class="buttons left-header">
+      </div>
+      <h1 class="title"><img ng-class="{'logo-high-level': settings.accountLevel == 100, 'logo-low-level': settings.accountLevel < 100}" src="img/CleanSnapLogo.png"></h1>
+  </ion-header-bar>
+  <ion-content>
+    <!--<spinner name="sweepingSpinner" img-src="img/sweeping.gif" show="loading">-->
+      <!--<h3>Loading, please wait...</h3>-->
+    <!--</spinner>-->
+    <div class="search" ng-init="adjustSearchBar=false"  ng-style="{
+      'margin':(adjustSearchBar==true)?'1vh 30vw auto':'15vh 30vw auto'
+    }">
+      <input type="text" class="search-bar" name="place" placeholder="Location" ng-if="settings.accountLevel == 100 || settings.accountLevel<100"
+      ng-model="search.address" ng-keyup="searchEvent($event)" required autofocus>
+      <button class="search-button" ng-click="searchClick(); adjustSearchBar=true;">Search for Jobs</button>
+    </div>
+    <div id="map"  ng-init="preloadedMap(); getPins();">
+
+    </div>
+    <!--&lt;!&ndash;<ui-gmap-google-map>&ndash;&gt;-->
+      <!--<ng-map center="loc">-->
+      <!--</ng-map>-->
+
+
+    <!--</ui-gmap-google-map>-->
+  </ion-content>
+
+</ion-view>

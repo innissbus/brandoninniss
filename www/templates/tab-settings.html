@@ -1,0 +1,53 @@
+<ion-view>
+  <ion-nav-bar>
+    <ion-nav-title>
+      <img src="img/CleanSnapLogo.png">
+    </ion-nav-title>
+  </ion-nav-bar>
+  
+  <ion-content>
+    <ng-form name="settingsForm">
+      <div class="list list-inset">
+
+        <label class="item item-input">
+          <span class="input-label">Search Distance: </span>
+          <input name="searchRadius"
+                 type="number"
+                 placeholder="200"
+                 value="200"
+                 number
+                 integer
+                 min="10"
+                 max="{{maxSearchRadius}}"
+                 ng-model="searchRadius"
+                 ng-change="radiusChanged(searchRadius)"/>
+        </label>
+        <span class="form-error"
+              ng-show="settingsForm.searchRadius.$error.min ||
+                  settingsForm.searchRadius.$error.max ||
+                  settingsForm.searchRadius.$error.integer ||
+                  settingsForm.searchRadius.$error.number">
+          <small>Search Distance must be between 10 and {{maxSearchRadius}} miles</small>
+        </span>
+        <ion-toggle ng-model="profile.notifyEmail" ng-disabled="isAnonymous"
+                    toggle-class="toggle-calm" ng-change="saveProfile()">
+          Email Notifications
+        </ion-toggle>
+        <ion-toggle ng-model="profile.notifyAdded" ng-disabled="isAnonymous"
+                    toggle-class="toggle-calm" ng-change="saveProfile()">
+          Notify when new jobs added
+        </ion-toggle>
+        <ion-toggle ng-model="profile.notifyChanged" ng-disabled="isAnonymous"
+                    toggle-class="toggle-calm" ng-change="saveProfile()">
+          Notify when jobs changed
+        </ion-toggle>
+        <ion-toggle ng-model="profile.notifyRemoved" ng-disabled="isAnonymous"
+                    toggle-class="toggle-calm" ng-change="saveProfile()">
+          Notify when jobs removed
+        </ion-toggle>
+        <button ng-hide="isLoggedIn();" ng-click="logoutUser();" class="button button-block button-calm" style="background-color:#234882; width: 30%; text-align: center;" >Logout</button>
+      </div>
+    </ng-form>
+    <!--<a href="https://getcleansnap.com/?mousefireFirebase=cleansnap-dev" target="_blank">mousefire</a>-->
+  </ion-content>
+</ion-view>

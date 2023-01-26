@@ -1,0 +1,57 @@
+<ion-view>
+  <ion-nav-bar>
+    <ion-nav-title>
+      <img src="img/CleanSnapLogo.png">
+    </ion-nav-title>
+  </ion-nav-bar>
+  <ion-content overflow-scroll="true" id="page-wrapper">
+    <span><a ng-click="printWindow();" class="button button-block button-calm" id="printBtn" style="background-color:#fff; color:#234882; text-align: right; margin-top: -.5%; font-size: large;" ><b>Print</b></a></span>
+    <div class="row header" style="margin-top: -1%;">
+      <div class="col col-25">Job Name <br/>Address</div>
+      <div class="col col-20">Contractor<br/>Estimate Amount</div>
+      <div class="col col-20">Project Manager<br/>Super on Site</div>
+      <div class="col"><br/>Phone</div>
+      <div class="col col-20"><br/>Email</div>
+    </div>
+    <div ng-repeat="job in jobs | orderBy: 'name' track by (job.id + $index) ">
+      <div class="row item-text-wrap rept-row ionic-selectable">
+        <div class="col col-25 ionic-selectable " style="font-size: 1rem;" ng-class="{'row-even':$even,'row-odd':$odd}">
+          <a ng-click="showNegoWhen(job.id)">
+            {{job.name}}
+          </a>
+        </div>
+        <div class="col col-20 ionic-selectable" style="font-size: 1rem;" ng-class="{'row-even':$even,'row-odd':$odd}">
+          {{job.account}}
+        </div>
+        <div class="col col-20 ionic-selectable" style="font-size: 1rem;" ng-class="{'row-even':$even,'row-odd':$odd}">
+          {{job.primaryContactName}}
+        </div>
+        <div class="col ionic-selectable" style="font-size: 1rem;" ng-class="{'row-even':$even,'row-odd':$odd}">
+          <a href="tel:{{job.primaryContactPhone}}">{{job.primaryContactPhone}}</a>
+        </div>
+        <div class="col col-20 hard-break ionic-selectable" style="font-size: 1rem;" ng-class="{'row-even':$even,'row-odd':$odd}">
+          <a href="mailto:{{job.primaryContactEmail}}">{{job.primaryContactEmail}}</a>
+        </div>
+      </div>
+      <div class="row item-text-wrap rept-row ionic-selectable">
+        <div class="col col-25 ionic-selectable" style="font-size: 1rem;" ng-class="{'row-even':$even,'row-odd':$odd}">
+          <a target="_blank" href="{{getDirectionsUrl(job.lat, job.lon)}}">
+            {{formatAddress(job.street, job.city, job.state)}}
+          </a>
+        </div>
+        <div class="col col-20 ionic-selectable" style="font-size: 1rem;" ng-class="{'row-even':$even,'row-odd':$odd}">
+          {{job.contractAmount | currency}}
+        </div>
+        <div class="col col-20 ionic-selectable" style="font-size: 1rem;" ng-class="{'row-even':$even,'row-odd':$odd}">
+          {{job.siteContactName}}
+        </div>
+        <div class="col ionic-selectable" style="font-size: 1rem;" ng-class="{'row-even':$even,'row-odd':$odd}">
+          <a href="tel:{{job.siteContactPhone}}">{{job.siteContactPhone}}</a>
+        </div>
+        <div class="col col-20 hard-break ionic-selectable" style="font-size: 1rem;" ng-class="{'row-even':$even,'row-odd':$odd}">
+          <a href="mailto:{{job.siteContactEmail}}">{{job.siteContactEmail}}</a>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

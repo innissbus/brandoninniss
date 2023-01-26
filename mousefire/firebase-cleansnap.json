@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "project-8261058087937695546",
+  "private_key_id": "530055836a8e1210fb45c54a196caaccd1557fc4",
+  "private_key": "<GET THIS FROM FIREBASE OR PRODUCTION SERVER>",
+  "client_email": "firebase-adminsdk-c6mxw@project-8261058087937695546.iam.gserviceaccount.com",
+  "client_id": "107175163427552724784",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-c6mxw%40project-8261058087937695546.iam.gserviceaccount.com"
+}

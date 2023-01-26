@@ -1,0 +1,21 @@
+<ion-modal-view>
+  <ion-header-bar>
+    <h1 class="title">{{jobName}}</h1>
+    <button
+      class="button button-assertive button-small icon icon-right ion-ios-close-outline pull-right"
+      ng-click="hideNegoWhen()"
+    >
+      Close&nbsp;
+    </button>
+  </ion-header-bar>
+  <ion-content overflow-scroll="false">
+    <div class="row padding">
+      <div class="col-20-table">
+        <b>Description:</b>
+      </div>
+      <div class="ionic-selectable ionic-preserve-whitespace">
+        {{description? description: "No Description Available"}}
+      </div>
+    </div>
+  </ion-content>
+</ion-modal-view>
